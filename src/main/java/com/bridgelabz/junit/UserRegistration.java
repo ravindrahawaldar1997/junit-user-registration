@@ -32,4 +32,13 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+    public static boolean isValidMobileNumber(String mobileNumber) {
+
+        String mobileNumberRegex = ("^[+][0-9]{2}[\\s][0-9]{10}$");
+
+        Pattern pattern = Pattern.compile(mobileNumberRegex);
+        Matcher matcher = pattern.matcher(mobileNumber);
+
+        return matcher.matches();
+    }
 }

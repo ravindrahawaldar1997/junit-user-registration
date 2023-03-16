@@ -40,4 +40,16 @@ public class UserRegistrationTest {
         boolean result = userRegistration.isValidEmail("ravi12...");
         Assertions.assertFalse(result);
     }
+    @Test
+    public void givenMobileNumber_whenValidShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidMobileNumber("+91 7975301655");
+        Assertions.assertTrue(result);
+    }
+    @Test
+    public void givenMobileNumber_whenValid_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidMobileNumber("+91 12345");
+        Assertions.assertFalse(result);
+    }
 }
