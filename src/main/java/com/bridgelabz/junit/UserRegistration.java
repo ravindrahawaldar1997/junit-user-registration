@@ -64,4 +64,13 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+    public static boolean isValidPasswordWithOneNumeric(String password) {
+
+        String passwordRegex = ("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+${8,}");
+
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+
+        return matcher.matches();
+    }
 }
