@@ -41,4 +41,13 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+    public static boolean isValidPassword(String password) {
+
+        String passwordRegex = ("^[a-zA-z]{8,}");
+
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+
+        return matcher.matches();
+    }
 }

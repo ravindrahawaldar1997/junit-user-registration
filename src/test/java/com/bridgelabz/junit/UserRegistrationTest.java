@@ -52,4 +52,16 @@ public class UserRegistrationTest {
         boolean result = userRegistration.isValidMobileNumber("+91 12345");
         Assertions.assertFalse(result);
     }
+    @Test
+    public void givenPassword_whenValidShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidPassword("ravindraadcac");
+        Assertions.assertTrue(result);
+    }
+    @Test
+    public void givenPassword_whenValid_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidPassword("ravi");
+        Assertions.assertFalse(result);
+    }
 }
