@@ -28,4 +28,16 @@ public class UserRegistrationTest {
         boolean result = userRegistration.isValidLastName("r");
         Assertions.assertFalse(result);
     }
+    @Test
+    public void givenEmail_whenValid_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidEmail("ravi@gmail.com");
+        Assertions.assertTrue(result);
+    }
+    @Test
+    public void givenEmail_whenValid_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidEmail("ravi12...");
+        Assertions.assertFalse(result);
+    }
 }
