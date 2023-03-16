@@ -87,6 +87,7 @@ public class UserRegistrationTest {
         boolean result = userRegistration.isValidPasswordWithOneUpperCase("wdfasd123");
         Assertions.assertFalse(result);
     }
+
     @Test
     public void givenPasswordWithOneNumber_whenValidShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
@@ -98,6 +99,20 @@ public class UserRegistrationTest {
     public void givenPasswordWithOneNumber_whenValid_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
         boolean result = userRegistration.isValidPasswordWithOneNumeric("wsadfg");
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void givenPasswordWithOneSpecialChar_whenValid_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidPasswordWithOneSpecialChar("RzxcAvi$jhbzjkh123");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenPasswordWithOneSpecialChar_whenValid_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean result = userRegistration.isValidPasswordWithOneSpecialChar("zxvasdasffa");
         Assertions.assertFalse(result);
     }
 }
