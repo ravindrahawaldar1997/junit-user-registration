@@ -14,6 +14,7 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+
     public static boolean isValidLastName(String lastName) {
 
         String lastNameRegex = "[A-Z]{1}[a-z]{2,}";
@@ -23,6 +24,7 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+
     public static boolean isValidEmail(String email) {
 
         String emailRegex = "^[a-zA-Z0-9]+([.][0-9a-zA-Z]+)*@[a-zA-Z]+.[a-z]{2,4}([.][a-z]{2,4})*$";
@@ -32,6 +34,7 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+
     public static boolean isValidMobileNumber(String mobileNumber) {
 
         String mobileNumberRegex = ("^[+][0-9]{2}[\\s][0-9]{10}$");
@@ -41,9 +44,20 @@ public class UserRegistration {
 
         return matcher.matches();
     }
+
     public static boolean isValidPassword(String password) {
 
         String passwordRegex = ("^[a-zA-z]{8,}");
+
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+
+        return matcher.matches();
+    }
+
+    public static boolean isValidPasswordWithOneUpperCase(String password) {
+
+        String passwordRegex = ("^(?=.*[a-z])(?=.*[A-Z]).+${8,}");
 
         Pattern pattern = Pattern.compile(passwordRegex);
         Matcher matcher = pattern.matcher(password);
