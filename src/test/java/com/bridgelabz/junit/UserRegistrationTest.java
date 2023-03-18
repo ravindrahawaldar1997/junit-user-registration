@@ -115,4 +115,33 @@ public class UserRegistrationTest {
         boolean result = userRegistration.isValidPasswordWithOneSpecialChar("zxvasdasffa");
         Assertions.assertFalse(result);
     }
+
+    @Test
+    void givenValidEmailSamples_WhenTested_ShouldReturnTrue() {
+        String[] validEmails = {"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com",
+                "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
+                "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"};
+
+         UserRegistration userRegistration= new UserRegistration();
+        for (int i = 0; i < validEmails.length; i++) {
+            boolean result = userRegistration.verifyEmailSamples(validEmails[i]);
+            Assertions Assert = null;
+            Assert.assertTrue(result);
+        }
+    }
+
+    @Test
+    void givenInvalidEmailSamples_WhenTested_ShouldReturnFalse() {
+        String[] inValidEmails = {"abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com",
+                ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com",
+                "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"};
+
+        UserRegistration userRegistration = new UserRegistration();
+        for (int i = 0; i < inValidEmails.length; i++) {
+            boolean result = userRegistration.verifyEmailSamples(inValidEmails[i]);
+            Assertions Assert = null;
+            Assert.assertFalse(result);
+        }
+    }
+
 }
