@@ -104,4 +104,9 @@ public class UserRegistration {
         }
         return false;
     }
+    public String analyseMood(String mood) {
+        if (mood.contains("sad"))
+            return "sad";
+        return "happy";
+    }
 }

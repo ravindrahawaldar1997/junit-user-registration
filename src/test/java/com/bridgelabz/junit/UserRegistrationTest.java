@@ -143,5 +143,11 @@ public class UserRegistrationTest {
             Assert.assertFalse(result);
         }
     }
-
+    @Test
+    public void givenSentence_WhenContainsSad_ShouldPassTest() {
+        UserRegistration userRegistration = new UserRegistration();
+        String mood = userRegistration.analyseMood("this is a sad message");
+        Assertions Assert = null;
+        Assert.assertEquals("sad", mood);
+    }
 }
